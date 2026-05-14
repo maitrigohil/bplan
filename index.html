@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B-Plan – Everything you need to crack CFA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'p-orange': '#FF9500',
+                        'p-blue': '#0088FF',
+                        'p-dark': '#101010',
+                        'p-gray': '#6e6e73',
+                        'p-muted': '#ababb0',
+                        'p-light': '#f5f5f7',
+                    },
+                    fontFamily: {
+                        sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .grad-orange {
+            background: linear-gradient(135deg, #FFBF00 0%, #FF9500 50%, #FF6000 100%);
+        }
+
+        .grad-yellow {
+            background: linear-gradient(135deg, #FFE566 0%, #FFAA00 100%);
+        }
+
+        .grad-blue {
+            background: linear-gradient(135deg, #0066FF 0%, #0099FF 100%);
+        }
+
+        .grad-stat {
+            background: linear-gradient(135deg, #FFAA00 0%, #FF8C00 100%);
+        }
+
+        /* device shadow */
+        .device-shadow {
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.18), 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body class="bg-white font-sans text-p-dark antialiased">
+
+    <!-- ═══════════════════════ NAV ═══════════════════════ -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-7 h-7 rounded-[8px] grad-orange flex items-center justify-center">
+                    <svg width="13" height="15" viewBox="0 0 13 15" fill="none">
+                        <rect x="1.5" y="3" width="10" height="11" rx="2" fill="white" opacity="0.95" />
+                        <rect x="4" y="1" width="5" height="3.5" rx="1.2" fill="white" />
+                    </svg>
+                </div>
+                <span class="font-semibold text-[15px]">bplan</span>
+            </div>
+            <div class="flex items-center gap-7">
+                <a href="#" class="text-p-gray text-[13px] hover:text-p-dark">Use Cases</a>
+                <a href="#" class="text-p-gray text-[13px] hover:text-p-dark">Help</a>
+                <a href="#" class="text-p-gray text-[13px] hover:text-p-dark">Blog</a>
+                <a href="#" class="text-p-gray text-[13px] hover:text-p-dark">Updates</a>
+                <a href="#" class="text-p-gray text-[13px] hover:text-p-dark">Pricing</a>
+            </div>
+            <button class="bg-p-blue text-white text-[13px] font-medium px-5 py-2 rounded-full">Try for free</button>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════ HERO ═══════════════════════ -->
+    <section class="bg-white pt-10 pb-16 text-center overflow-hidden">
+        <!-- Device mockup row -->
+        <div class="relative flex items-end justify-center mb-10"
+            style="height:360px; max-width:900px; margin-left:auto; margin-right:auto;">
+            <!-- MacBook (center, large) -->
+            <div class="relative z-10 device-shadow" style="width:620px; flex-shrink:0;">
+                <div class="bg-[#2a2a2c] rounded-t-[12px] p-2" style="height:360px;">
+                    <div class="bg-[#1c1c1e] rounded-[8px] w-full h-full overflow-hidden relative">
+                        <!-- macOS top bar -->
+                        <div class="flex items-center gap-1.5 px-3 py-2 bg-[#323234]">
+                            <div class="w-3 h-3 rounded-full bg-[#FF5F57]"></div>
+                            <div class="w-3 h-3 rounded-full bg-[#FFBD2E]"></div>
+                            <div class="w-3 h-3 rounded-full bg-[#28C840]"></div>
+                            <div class="mx-auto flex gap-2">
+                                <div class="h-2 w-20 bg-[#4a4a4c] rounded-full"></div>
+                            </div>
+                        </div>
+                        <!-- Wallpaper / main content area -->
+                        <div class="absolute inset-x-0 top-8 bottom-[120px]"
+                            style="background:linear-gradient(135deg,#1a1a3e 0%,#2d1b4e 50%,#1e3a5f 100%);">
+                            <div class="flex items-center justify-center h-full opacity-60">
+                                <div
+                                    style="width:100px;height:100px;background:linear-gradient(135deg,#FF9500,#FF6000);border-radius:24px;">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Paste clipboard tray at bottom -->
+                        <div class="absolute bottom-0 left-0 right-0 bg-[#232325] flex gap-2.5 p-3 overflow-hidden"
+                            style="height:120px;">
+                            <!-- selected/active item -->
+                            <div class="rounded-[14px] flex-shrink-0 ring-2 ring-white/50"
+                                style="width:120px;height:92px;background:linear-gradient(135deg,#FF9500,#FF6000);">
+                                <div class="p-2.5 text-white text-[9px] font-bold">Tail</div>
+                                <div class="px-2.5 space-y-1.5">
+                                    <div class="h-1.5 bg-white/50 rounded-full w-3/4"></div>
+                                    <div class="h-1.5 bg-white/35 rounded-full w-full"></div>
+                                    <div class="h-1.5 bg-white/25 rounded-full w-2/3"></div>
+                                </div>
+                            </div>
+                            <div class="rounded-[14px] flex-shrink-0"
+                                style="width:120px;height:92px;background:#2ecc71;">
+                                <div class="p-2.5 text-white text-[9px] font-bold">Design.png</div>
+                                <div class="flex items-center justify-center mt-1">
+                                    <div class="w-12 h-12 bg-white/25 rounded-xl"></div>
+                                </div>
+                            </div>
+                            <div class="rounded-[14px] flex-shrink-0"
+                                style="width:120px;height:92px;background:#5856D6;">
+                                <div class="p-2.5 text-white text-[9px] font-bold">Meeting link</div>
+                                <div class="px-2.5 space-y-1.5">
+                                    <div class="h-1.5 bg-white/40 rounded-full w-full"></div>
+                                    <div class="h-1.5 bg-white/25 rounded-full w-4/5"></div>
+                                </div>
+                            </div>
+                            <div class="rounded-[14px] flex-shrink-0"
+                                style="width:120px;height:92px;background:#FF3B30;">
+                                <div class="p-2.5 text-white text-[9px] font-bold">Invoice #44</div>
+                                <div class="px-2.5 space-y-1.5">
+                                    <div class="h-1.5 bg-white/40 rounded-full w-2/3"></div>
+                                    <div class="h-1.5 bg-white/20 rounded-full w-full"></div>
+                                </div>
+                            </div>
+                            <div class="rounded-[14px] flex-shrink-0"
+                                style="width:120px;height:92px;background:#30B0C7;">
+                                <div class="p-2.5 text-white text-[9px] font-bold">Code snippet</div>
+                                <div class="px-2.5 space-y-1.5">
+                                    <div class="h-1.5 bg-white/40 rounded-full w-3/4"></div>
+                                    <div class="h-1.5 bg-white/30 rounded-full w-full"></div>
+                                    <div class="h-1.5 bg-white/40 rounded-full w-1/2"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-[#3a3a3c] h-3 rounded-b-sm w-full"></div>
+                <div class="bg-[#4a4a4c] h-1.5 w-[58%] mx-auto rounded-b-lg"></div>
+            </div>
+
+            <!-- iPad (right, overlapping) -->
+            <div class="absolute z-20 device-shadow" style="right:20px; bottom:0; width:160px;">
+                <div class="bg-[#2a2a2c] rounded-[16px] p-1.5" style="height:220px;">
+                    <div class="bg-[#1c1c1e] rounded-[12px] w-full h-full overflow-hidden">
+                        <div class="flex gap-1 p-2">
+                            <div class="w-2 h-2 rounded-full bg-[#FF5F57]"></div>
+                            <div class="w-2 h-2 rounded-full bg-[#FFBD2E]"></div>
+                            <div class="w-2 h-2 rounded-full bg-[#28C840]"></div>
+                        </div>
+                        <div class="p-2 grid grid-cols-2 gap-1.5">
+                            <div class="rounded-[10px] overflow-hidden"
+                                style="height:60px;background:linear-gradient(135deg,#FF9500,#FF6000);">
+                                <div class="p-1.5 text-white text-[7px] font-bold">Read Later</div>
+                                <div class="px-1.5 space-y-1">
+                                    <div class="h-1 bg-white/40 rounded w-full"></div>
+                                    <div class="h-1 bg-white/20 rounded w-3/4"></div>
+                                </div>
+                            </div>
+                            <div class="rounded-[10px] overflow-hidden" style="height:60px;background:#34C759;">
+                                <div class="p-1.5 text-white text-[7px] font-bold">Work</div>
+                                <div class="px-1.5 space-y-1">
+                                    <div class="h-1 bg-white/40 rounded w-3/4"></div>
+                                    <div class="h-1 bg-white/20 rounded w-full"></div>
+                                </div>
+                            </div>
+                            <div class="rounded-[10px] overflow-hidden" style="height:60px;background:#5856D6;">
+                                <div class="p-1.5 text-white text-[7px] font-bold">Design</div>
+                            </div>
+                            <div class="rounded-[10px] overflow-hidden" style="height:60px;background:#30B0C7;">
+                                <div class="p-1.5 text-white text-[7px] font-bold">Code</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- iPhone (far right, overlapping iPad) -->
+            <div class="absolute z-30 device-shadow" style="right:0px; bottom:28px; width:78px;">
+                <div class="bg-[#2a2a2c] rounded-[20px] p-1" style="height:160px;">
+                    <div class="bg-[#1c1c1e] rounded-[17px] w-full h-full overflow-hidden relative">
+                        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-1.5 bg-[#2a2a2c] rounded-b-lg z-10">
+                        </div>
+                        <div class="p-1.5 pt-3.5">
+                            <div class="grad-yellow rounded-[8px] p-1.5 mb-1">
+                                <div class="text-[6px] font-bold text-[#5a3000]">Tail</div>
+                                <div class="space-y-0.5 mt-0.5">
+                                    <div class="h-0.5 bg-[#5a3000]/30 rounded w-full"></div>
+                                    <div class="h-0.5 bg-[#5a3000]/20 rounded w-3/4"></div>
+                                </div>
+                            </div>
+                            <div class="space-y-1">
+                                <div class="bg-[#3a3a3c] rounded-[6px] p-1 flex gap-1 items-center">
+                                    <div class="w-3.5 h-3.5 rounded-md bg-green-500/70 flex-shrink-0"></div>
+                                    <div class="h-1 bg-gray-500 rounded w-full"></div>
+                                </div>
+                                <div class="bg-[#3a3a3c] rounded-[6px] p-1 flex gap-1 items-center">
+                                    <div class="w-3.5 h-3.5 rounded-md bg-blue-500/70 flex-shrink-0"></div>
+                                    <div class="h-1 bg-gray-500 rounded w-3/4"></div>
+                                </div>
+                                <div class="bg-[#3a3a3c] rounded-[6px] p-1 flex gap-1 items-center">
+                                    <div class="w-3.5 h-3.5 rounded-md bg-purple-500/70 flex-shrink-0"></div>
+                                    <div class="h-1 bg-gray-500 rounded w-5/6"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h1 class="text-[38px] leading-[1.15] font-bold text-p-dark mb-4 px-4">Your clipboard,<br>supercharged and
+            secure</h1>
+        <p class="text-p-gray text-[15px] leading-relaxed mb-7 max-w-[360px] mx-auto px-4">Paste keeps everything you
+            copy organized and searchable. Lightweight, intuitive, packed with smart features, and private by design.
+        </p>
+        <button class="bg-p-blue text-white text-[15px] font-medium px-7 py-3 rounded-full mb-10">Try for free</button>
+
+        <!-- Trust badges -->
+        <div class="flex items-center justify-center gap-5 flex-wrap px-4 text-p-muted text-[11px]">
+            <div class="flex items-center gap-1.5">
+                <span style="color:#FF9500">★★★★★</span>
+                <span>4.8 · App Store</span>
+            </div>
+            <span class="font-medium text-[12px] text-p-muted" style="font-family:Georgia,serif">Product Hunt</span>
+            <span class="font-semibold text-[12px] text-p-muted">Setapp</span>
+            <span class="font-semibold text-[12px] text-p-muted" style="letter-spacing:-0.5px">Wirecutter</span>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════ DO MORE (orange heading) ═══════════════════════ -->
+    <section class="bg-p-light py-20">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h2 class="text-[48px] leading-[1.15] font-bold text-p-orange mb-20">Do more with what you've<br>already
+                done</h2>
+
+            <!-- KEEP feature -->
+            <div class="flex flex-col md:flex-row items-center gap-14 text-left">
+                <!-- Left: Clipboard card -->
+                <div class="flex-1 w-full">
+                    <div class="bg-white rounded-[20px] p-5 shadow-md">
+                        <!-- Active item (yellow gradient) -->
+                        <div class="grad-yellow rounded-[14px] p-4 mb-3">
+                            <div class="bg-white rounded-[10px] p-3 shadow-sm">
+                                <div class="flex items-center gap-2 mb-2.5">
+                                    <div class="w-4 h-4 grad-orange rounded-full flex-shrink-0"></div>
+                                    <span class="text-[12px] font-semibold text-p-dark">Tail</span>
+                                </div>
+                                <div class="space-y-1.5">
+                                    <div class="h-2 bg-[#f0e0b0] rounded-full w-full"></div>
+                                    <div class="h-2 bg-[#f0e0b0] rounded-full w-5/6"></div>
+                                    <div class="h-2 bg-[#f0e0b0] rounded-full w-3/4"></div>
+                                    <div class="h-2 bg-[#f0e0b0] rounded-full w-4/5"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- History items -->
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-3 bg-p-light rounded-[10px] p-3">
+                                <div class="w-8 h-8 rounded-lg grad-blue flex-shrink-0"></div>
+                                <div class="flex-1 space-y-1.5">
+                                    <div class="h-2 bg-gray-300 rounded-full w-3/4"></div>
+                                    <div class="h-2 bg-gray-200 rounded-full w-2/5"></div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3 bg-p-light rounded-[10px] p-3">
+                                <div class="w-8 h-8 rounded-lg bg-[#34C759] flex-shrink-0"></div>
+                                <div class="flex-1 space-y-1.5">
+                                    <div class="h-2 bg-gray-300 rounded-full w-2/3"></div>
+                                    <div class="h-2 bg-gray-200 rounded-full w-1/3"></div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3 bg-p-light rounded-[10px] p-3">
+                                <div class="w-8 h-8 rounded-lg bg-[#5856D6] flex-shrink-0"></div>
+                                <div class="flex-1 space-y-1.5">
+                                    <div class="h-2 bg-gray-300 rounded-full w-5/6"></div>
+                                    <div class="h-2 bg-gray-200 rounded-full w-2/5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Text -->
+                <div class="flex-1">
+                    <p class="text-p-orange text-[11px] font-bold tracking-[0.18em] uppercase mb-3">Keep</p>
+                    <h3 class="text-[30px] font-bold text-p-dark leading-tight mb-4">Infinite clipboard<br>history</h3>
+                    <p class="text-p-gray text-[14px] leading-[1.6] mb-3">Paste extends system clipboard capacity and
+                        stores everything you copy on your Mac, iPhone or iPad so you can use it whenever you need it
+                        again.</p>
+                    <p class="text-p-gray text-[14px] leading-[1.6]">All data is securely stored locally on your devices
+                        and in your private iCloud storage.</p>
+                    <p class="text-p-muted text-[12px] mt-3">100% characters</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════ ORGANIZE ═══════════════════════ -->
+    <section class="bg-white py-16">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="bg-p-light rounded-[28px] p-10">
+                <p class="text-p-orange text-[11px] font-bold tracking-[0.18em] uppercase mb-3">Organize</p>
+                <h3 class="text-[30px] font-bold text-p-dark leading-tight mb-8">Quickly access what you
+                    need<br>frequently</h3>
+                <div class="grid grid-cols-3 gap-4">
+                    <!-- Card 1: warm lifestyle tone -->
+                    <div class="bg-white rounded-[16px] overflow-hidden shadow-sm">
+                        <div class="w-full relative overflow-hidden"
+                            style="height:112px; background:linear-gradient(160deg,#d4b896 0%,#b89070 60%,#a07850 100%);">
+                            <!-- person silhouette sitting -->
+                            <div class="absolute bottom-0 left-1/2 -translate-x-1/2"
+                                style="width:60px;height:80px;background:radial-gradient(ellipse at top,#8a6040 0%,#5a3820 100%);border-radius:50% 50% 0 0;">
+                            </div>
+                            <div class="absolute"
+                                style="bottom:58px;left:50%;transform:translateX(-50%);width:28px;height:28px;background:#c49070;border-radius:50%;">
+                            </div>
+                            <!-- background blob -->
+                            <div class="absolute"
+                                style="top:8px;right:10px;width:44px;height:44px;background:#c8a070;border-radius:50%;opacity:0.5;">
+                            </div>
+                        </div>
+                        <div class="p-3">
+                            <div class="text-[10px] font-bold text-p-orange mb-0.5">Read Later</div>
+                            <div class="text-[12px] font-medium text-p-dark">Work-life Balanced</div>
+                        </div>
+                    </div>
+                    <!-- Card 2: cool blue product tone -->
+                    <div class="bg-white rounded-[16px] overflow-hidden shadow-sm">
+                        <div class="w-full relative overflow-hidden"
+                            style="height:112px; background:linear-gradient(160deg,#b0c8e0 0%,#80a8cc 100%);">
+                            <!-- product shapes -->
+                            <div class="absolute"
+                                style="top:16px;left:20px;width:50px;height:50px;background:#90b8d8;border-radius:8px;">
+                            </div>
+                            <div class="absolute"
+                                style="top:22px;left:80px;width:36px;height:36px;background:#a8c8e4;border-radius:6px;">
+                            </div>
+                            <div class="absolute"
+                                style="top:28px;left:126px;width:60px;height:44px;background:#c0d8f0;border-radius:8px;">
+                            </div>
+                            <div class="absolute"
+                                style="bottom:0;left:0;right:0;height:24px;background:#6090b8;opacity:0.4;"></div>
+                        </div>
+                        <div class="p-3">
+                            <div class="text-[10px] font-bold text-p-orange mb-0.5">Read Later</div>
+                            <div class="text-[12px] font-medium text-p-dark">Top 10 Best Products</div>
+                        </div>
+                    </div>
+                    <!-- Card 3: green nature tone -->
+                    <div class="bg-white rounded-[16px] overflow-hidden shadow-sm">
+                        <div class="w-full relative overflow-hidden"
+                            style="height:112px; background:linear-gradient(160deg,#a8d0b4 0%,#78b088 100%);">
+                            <!-- nature shapes -->
+                            <div class="absolute" style="bottom:0;left:0;right:0;height:36px;background:#5a9468;"></div>
+                            <div class="absolute"
+                                style="bottom:28px;left:24px;width:0;height:0;border-left:18px solid transparent;border-right:18px solid transparent;border-bottom:40px solid #4a8458;">
+                            </div>
+                            <div class="absolute"
+                                style="bottom:28px;left:60px;width:0;height:0;border-left:22px solid transparent;border-right:22px solid transparent;border-bottom:52px solid #3a7448;">
+                            </div>
+                            <div class="absolute"
+                                style="bottom:28px;left:100px;width:0;height:0;border-left:16px solid transparent;border-right:16px solid transparent;border-bottom:36px solid #5a9468;">
+                            </div>
+                            <div class="absolute"
+                                style="bottom:28px;right:20px;width:0;height:0;border-left:20px solid transparent;border-right:20px solid transparent;border-bottom:48px solid #4a8458;">
+                            </div>
+                            <!-- sun -->
+                            <div class="absolute"
+                                style="top:12px;right:18px;width:22px;height:22px;background:#ffd060;border-radius:50%;">
+                            </div>
+                        </div>
+                        <div class="p-3">
+                            <div class="text-[10px] font-bold text-p-orange mb-0.5">Read Later</div>
+                            <div class="text-[12px] font-medium text-p-dark">10 Wonderful Things</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════ COLLABORATE ═══════════════════════ -->
+    <section class="bg-white py-16 text-center">
+        <div class="max-w-5xl mx-auto px-6">
+            <p class="text-p-orange text-[11px] font-bold tracking-[0.18em] uppercase mb-3">Collaborate</p>
+            <h3 class="text-[30px] font-bold text-p-dark leading-tight mb-10">Share your pinboards<br>and work together
+            </h3>
+            <!-- Avatars: 2 rows, centered -->
+            <div class="flex flex-col items-center gap-3">
+                <div class="flex gap-3">
+                    <div class="w-[72px] h-[72px] rounded-full overflow-hidden ring-2 ring-white shadow-md"
+                        style="background:linear-gradient(135deg,#f4a261,#e76f51)">
+                        <div class="w-full h-full flex items-center justify-center text-white font-bold text-xl">A</div>
+                    </div>
+                    <div class="w-[72px] h-[72px] rounded-full overflow-hidden ring-2 ring-white shadow-md"
+                        style="background:linear-gradient(135deg,#2a9d8f,#52b788)">
+                        <div class="w-full h-full flex items-center justify-center text-white font-bold text-xl">B</div>
+                    </div>
+                    <div class="w-[72px] h-[72px] rounded-full overflow-hidden ring-2 ring-white shadow-md"
+                        style="background:linear-gradient(135deg,#e9c46a,#f4a261)">
+                        <div class="w-full h-full flex items-center justify-center text-white font-bold text-xl">C</div>
+                    </div>
+                    <div class="w-[72px] h-[72px] rounded-full overflow-hidden ring-2 ring-white shadow-md"
+                        style="background:linear-gradient(135deg,#264653,#2a9d8f)">
+                        <div class="w-full h-full flex items-center justify-center text-white font-bold text-xl">D</div>
+                    </div>
+                    <div class="w-[72px] h-[72px] rounded-full overflow-hidden ring-2 ring-white shadow-md"
+                        style="background:linear-gradient(135deg,#8ecae6,#219ebc)">
+                        <div class="w-full h-full flex items-center justify-center text-white font-bold text-xl">E</div>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <div class="w-[72px] h-[72px] rounded-full overflow-hidden ring-2 ring-white shadow-md"
+                        style="background:linear-gradient(135deg,#ffb703,#fb8500)">
+                        <div class="w-full h-full flex items-center justify-center text-white font-bold text-xl">F</div>
+                    </div>
+                    <div class="w-[72px] h-[72px] rounded-full overflow-hidden ring-2 ring-white shadow-md"
+                        style="background:linear-gradient(135deg,#cb30e0,#8338ec)">
+                        <div class="w-full h-full flex items-center justify-center text-white font-bold text-xl">G</div>
+                    </div>
+                    <div class="w-[72px] h-[72px] rounded-full overflow-hidden ring-2 ring-white shadow-md"
+                        style="background:linear-gradient(135deg,#e76f51,#f4a261)">
+                        <div class="w-full h-full flex items-center justify-center text-white font-bold text-xl">H</div>
+                    </div>
+                    <div class="w-[72px] h-[72px] rounded-full overflow-hidden ring-2 ring-white shadow-md"
+                        style="background:linear-gradient(135deg,#023047,#219ebc)">
+                        <div class="w-full h-full flex items-center justify-center text-white font-bold text-xl">I</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════ POWERFUL FEATURES heading ═══════════════════════ -->
+    <section class="bg-white py-16 text-center">
+        <h2 class="text-[48px] leading-[1.15] font-bold text-p-orange px-4">Powerful features<br>to boost your
+            productivity</h2>
+    </section>
+
+    <!-- ═══════════════════════ FEATURES GRID ═══════════════════════ -->
+    <section class="bg-white pb-20">
+        <div class="max-w-5xl mx-auto px-6">
+            <!-- Row 1: Many ways + Custom rules -->
+            <div class="grid grid-cols-5 gap-5 mb-5">
+                <!-- Many ways (wider) -->
+                <div class="col-span-3 bg-white rounded-[24px] p-7">
+                    <h4 class="text-[19px] font-bold text-p-dark mb-1.5">Many ways to Paste</h4>
+                    <p class="text-p-gray text-[13px] mb-5 leading-relaxed">Paste multiple items in the order you
+                        choose. Keep the original formatting or switch to plain text.</p>
+                    <!-- App preview mockup -->
+                    <div class="bg-[#1c1c1e] rounded-[14px] overflow-hidden p-0">
+                        <!-- top bar -->
+                        <div class="flex items-center gap-1.5 px-3 py-2 bg-[#2a2a2c]">
+                            <div class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></div>
+                            <div class="flex-1 flex justify-center">
+                                <div class="h-2 w-24 bg-[#3a3a3c] rounded-full"></div>
+                            </div>
+                        </div>
+                        <!-- clipboard strip -->
+                        <div class="flex gap-2 p-3 overflow-hidden">
+                            <div class="rounded-[10px] flex-shrink-0 ring-2 ring-white/40"
+                                style="width:100px;height:70px;background:linear-gradient(135deg,#FF9500,#FF6000);">
+                                <div class="p-2 text-white text-[8px] font-bold">Tail</div>
+                                <div class="px-2 space-y-1">
+                                    <div class="h-1 bg-white/50 rounded w-3/4"></div>
+                                    <div class="h-1 bg-white/35 rounded w-full"></div>
+                                </div>
+                            </div>
+                            <div class="rounded-[10px] flex-shrink-0"
+                                style="width:100px;height:70px;background:#34C759;">
+                                <div class="p-2 text-white text-[8px] font-bold">Image.png</div>
+                                <div class="flex items-center justify-center mt-1">
+                                    <div class="w-9 h-9 bg-white/25 rounded-lg"></div>
+                                </div>
+                            </div>
+                            <div class="rounded-[10px] flex-shrink-0"
+                                style="width:100px;height:70px;background:#5856D6;">
+                                <div class="p-2 text-white text-[8px] font-bold">Meeting</div>
+                                <div class="px-2 space-y-1">
+                                    <div class="h-1 bg-white/40 rounded w-full"></div>
+                                    <div class="h-1 bg-white/25 rounded w-3/4"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Custom rules (narrower, blue) -->
+                <div class="col-span-2 grad-blue rounded-[24px] p-7 text-white flex flex-col">
+                    <!-- UI mockup -->
+                    <div class="bg-white/15 rounded-[14px] p-3 mb-5 flex-1">
+                        <div class="space-y-2">
+                            <div class="bg-white/20 rounded-lg p-2">
+                                <div class="text-[8px] text-white/70 mb-1">Rule name</div>
+                                <div class="h-2 bg-white/40 rounded-full w-3/4"></div>
+                            </div>
+                            <div class="bg-white/20 rounded-lg p-2">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-3 h-3 rounded bg-white/50 flex-shrink-0"></div>
+                                    <div class="h-1.5 bg-white/40 rounded-full w-full"></div>
+                                </div>
+                            </div>
+                            <div class="bg-white/20 rounded-lg p-2">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-3 h-3 rounded bg-white/50 flex-shrink-0"></div>
+                                    <div class="h-1.5 bg-white/40 rounded-full w-4/5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="text-[19px] font-bold mb-2">Custom rules</h4>
+                    <p class="text-white/80 text-[13px] leading-relaxed">Tell Paste what to exclude, classify rules for
+                        apps with sensitive data like passwords.</p>
+                </div>
+            </div>
+
+            <!-- Row 2: Stats bar (orange) -->
+            <div class="grad-stat rounded-[24px] p-7 mb-5">
+                <!-- mini charts: left bar chart + right line chart -->
+                <div class="grid grid-cols-2 gap-4 mb-6">
+                    <!-- Bar chart -->
+                    <div class="bg-white/15 rounded-[14px] p-4 overflow-hidden flex items-end gap-2"
+                        style="height:90px">
+                        <div class="flex-1 bg-white/50 rounded-t" style="height:40%"></div>
+                        <div class="flex-1 bg-white/50 rounded-t" style="height:65%"></div>
+                        <div class="flex-1 bg-white/50 rounded-t" style="height:50%"></div>
+                        <div class="flex-1 bg-white/70 rounded-t" style="height:80%"></div>
+                        <div class="flex-1 bg-white/50 rounded-t" style="height:55%"></div>
+                        <div class="flex-1 bg-white/50 rounded-t" style="height:70%"></div>
+                        <div class="flex-1 bg-white/50 rounded-t" style="height:45%"></div>
+                        <div class="flex-1 bg-white/50 rounded-t" style="height:85%"></div>
+                    </div>
+                    <!-- Line chart -->
+                    <div class="bg-white/15 rounded-[14px] overflow-hidden" style="height:90px">
+                        <svg width="100%" height="100%" viewBox="0 0 300 70" preserveAspectRatio="none" fill="none">
+                            <path
+                                d="M0,60 C30,50 50,45 80,35 C110,25 130,40 160,28 C190,16 210,30 240,18 C270,8 285,12 300,5"
+                                stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.9" />
+                            <path
+                                d="M0,60 C30,50 50,45 80,35 C110,25 130,40 160,28 C190,16 210,30 240,18 C270,8 285,12 300,5 L300,70 L0,70 Z"
+                                fill="white" opacity="0.12" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="grid grid-cols-3 gap-6 text-white text-center">
+                    <div>
+                        <div class="text-[34px] font-bold tracking-tight">3,19</div>
+                        <div class="text-white/70 text-[12px] mt-1">avg. items copied / day</div>
+                    </div>
+                    <div>
+                        <div class="text-[34px] font-bold tracking-tight">28m 40s</div>
+                        <div class="text-white/70 text-[12px] mt-1">time saved per week</div>
+                    </div>
+                    <div>
+                        <div class="text-[34px] font-bold tracking-tight">9m 21s</div>
+                        <div class="text-white/70 text-[12px] mt-1">avg. session length</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 3: Preview and edit -->
+            <div class="bg-p-light rounded-[24px] p-7">
+                <div class="flex flex-col md:flex-row gap-8 items-center">
+                    <div class="md:w-[40%]">
+                        <h4 class="text-[19px] font-bold text-p-dark mb-2">Preview and edit</h4>
+                        <p class="text-p-gray text-[13px] leading-relaxed">Polishes your items, images, and files in a
+                            dedicated editing window without saving Paste.</p>
+                    </div>
+                    <div class="flex-1">
+                        <div class="grid grid-cols-3 gap-3">
+                            <!-- Text doc preview -->
+                            <div class="rounded-[12px] overflow-hidden bg-white shadow-sm" style="height:84px;">
+                                <div class="p-2.5 space-y-1.5">
+                                    <div class="h-2 bg-gray-200 rounded-full w-full"></div>
+                                    <div class="h-2 bg-gray-200 rounded-full w-3/4"></div>
+                                    <div class="h-2 bg-gray-100 rounded-full w-full"></div>
+                                    <div class="h-2 bg-gray-100 rounded-full w-5/6"></div>
+                                    <div class="h-2 bg-gray-100 rounded-full w-2/3"></div>
+                                </div>
+                            </div>
+                            <!-- Bar chart preview -->
+                            <div class="rounded-[12px] overflow-hidden bg-white shadow-sm flex items-end gap-1.5 p-3"
+                                style="height:84px;">
+                                <div class="flex-1 bg-[#FF9500] rounded-t-sm" style="height:45%"></div>
+                                <div class="flex-1 bg-[#FF9500] rounded-t-sm" style="height:70%"></div>
+                                <div class="flex-1 bg-[#FF9500] rounded-t-sm" style="height:35%"></div>
+                                <div class="flex-1 bg-[#FF9500] rounded-t-sm" style="height:85%"></div>
+                                <div class="flex-1 bg-[#FF9500] rounded-t-sm" style="height:55%"></div>
+                                <div class="flex-1 bg-[#FF9500] rounded-t-sm" style="height:65%"></div>
+                            </div>
+                            <!-- Image/color preview -->
+                            <div class="rounded-[12px] overflow-hidden shadow-sm"
+                                style="height:84px;background:linear-gradient(135deg,#f4a261,#e76f51,#cb30e0);">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════ TESTIMONIALS ═══════════════════════ -->
+    <section class="bg-p-light py-20">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-[34px] font-bold text-p-dark text-center mb-12">People everywhere<br>love Paste</h2>
+            <div class="grid grid-cols-4 gap-4">
+                <!-- Alexander -->
+                <div class="bg-white rounded-[16px] p-5">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center font-bold text-white text-sm"
+                            style="background:linear-gradient(135deg,#f4a261,#e76f51)">AA</div>
+                        <div>
+                            <div class="text-[12px] font-semibold text-p-dark">Alexander Akery</div>
+                            <div class="text-[11px] text-p-muted">@alexakery</div>
+                        </div>
+                    </div>
+                    <p class="text-[12px] text-p-gray leading-relaxed">I got worried when I saw a computer without
+                        @paste_app. What if there's something important on the clipboard? It's like how you can "hold" a
+                        place in Tetris but you have to remember what it is.</p>
+                    <p class="text-[11px] text-p-muted mt-3">Few things have had so much impact on my Mac experience.
+                    </p>
+                </div>
+                <!-- Chris -->
+                <div class="bg-white rounded-[16px] p-5">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center font-bold text-white text-sm"
+                            style="background:linear-gradient(135deg,#2a9d8f,#52b788)">CM</div>
+                        <div>
+                            <div class="text-[12px] font-semibold text-p-dark">Chris Messina</div>
+                            <div class="text-[11px] text-p-muted">@chrismessina</div>
+                        </div>
+                    </div>
+                    <p class="text-[12px] text-p-gray leading-relaxed">This is a must-have Mac app for me. I've been
+                        using it hundreds of times a day. So useful!</p>
+                    <!-- inline screenshot mockup -->
+                    <div class="mt-3 bg-white rounded-lg p-2">
+                        <div class="flex gap-1.5 mb-1.5">
+                            <div class="w-2 h-2 rounded-full bg-[#FF5F57]"></div>
+                            <div class="w-2 h-2 rounded-full bg-[#FFBD2E]"></div>
+                            <div class="w-2 h-2 rounded-full bg-[#28C840]"></div>
+                        </div>
+                        <div class="space-y-1">
+                            <div class="h-1.5 bg-gray-200 rounded w-3/4"></div>
+                            <div class="h-1.5 bg-gray-200 rounded w-full"></div>
+                            <div class="h-1.5 bg-gray-100 rounded w-2/3"></div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 mt-3">
+                        <div class="w-7 h-7 rounded-full flex-shrink-0 flex items-center justify-center text-white text-[8px] font-bold"
+                            style="background:linear-gradient(135deg,#8338ec,#cb30e0)">KW</div>
+                        <div>
+                            <div class="text-[10px] font-semibold text-p-dark">Kirsten Wright</div>
+                            <div class="text-[9px] text-p-muted">@kirstenw</div>
+                        </div>
+                    </div>
+                    <p class="text-[11px] text-p-gray mt-1.5 leading-relaxed">Finally bought @paste_app, really digging
+                        it. Great for code snippets, todos & links you frequently use.</p>
+                </div>
+                <!-- Sammy -->
+                <div class="bg-white rounded-[16px] p-5">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center font-bold text-white text-sm"
+                            style="background:linear-gradient(135deg,#e76f51,#f4a261)">SS</div>
+                        <div>
+                            <div class="text-[12px] font-semibold text-p-dark">Sammy Schukert</div>
+                            <div class="text-[11px] text-p-muted">@nusquam</div>
+                        </div>
+                    </div>
+                    <p class="text-[12px] text-p-gray leading-relaxed">I'm a heavy @paste_app user for years. Paste is
+                        core to my coding workflow. Even while writing this tweet it prompts me with suggestions and
+                        makes me crazy efficient. Every time someone uses a computer next to me, they ask "what was
+                        that? I want that!"</p>
+                    <div class="mt-3 bg-white rounded-lg p-2">
+                        <div class="h-1.5 bg-gray-200 rounded w-full mb-1"></div>
+                        <div class="h-1.5 bg-gray-100 rounded w-2/3"></div>
+                    </div>
+                </div>
+                <!-- João + Matthias stacked -->
+                <div class="flex flex-col gap-4">
+                    <div class="bg-white rounded-[16px] p-5">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center font-bold text-white text-sm"
+                                style="background:linear-gradient(135deg,#264653,#2a9d8f)">JC</div>
+                            <div>
+                                <div class="text-[12px] font-semibold text-p-dark">João Cunha</div>
+                                <div class="text-[11px] text-p-muted">@joao_cunha</div>
+                            </div>
+                        </div>
+                        <p class="text-[12px] text-p-gray leading-relaxed">Finally bought @paste_app, really digging it.
+                            Great for code snippets, for todos & links you frequently use.</p>
+                    </div>
+                    <div class="bg-white rounded-[16px] p-5">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center font-bold text-white text-sm"
+                                style="background:linear-gradient(135deg,#e9c46a,#f4a261)">MF</div>
+                            <div>
+                                <div class="text-[12px] font-semibold text-p-dark">Matthias Felt</div>
+                                <div class="text-[11px] text-p-muted">@feltr</div>
+                            </div>
+                        </div>
+                        <p class="text-[12px] text-p-gray leading-relaxed">Few things have had as much impact on my Mac
+                            experience.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════ PRICING ═══════════════════════ -->
+    <section class="bg-white py-24 text-center border-t border-gray-100">
+        <div class="max-w-md mx-auto px-6">
+            <h2 class="text-[34px] font-bold text-p-dark leading-tight mb-3">Ready to up your<br>clipboard game?</h2>
+            <p class="text-p-gray text-[15px] mb-10">Subscription or lifetime purchase.<br>For you on all your devices.
+            </p>
+
+            <!-- Plan tabs -->
+            <div class="inline-flex bg-p-light rounded-full p-1 mb-8">
+                <button class="px-5 py-2 text-[13px] text-p-gray rounded-full">Monthly</button>
+                <button
+                    class="px-5 py-2 text-[13px] bg-white text-p-dark font-medium rounded-full shadow-sm">Annual</button>
+                <button class="px-5 py-2 text-[13px] text-p-gray rounded-full">Lifetime</button>
+            </div>
+
+            <!-- Price -->
+            <div class="mb-10">
+                <span class="text-[54px] font-bold text-p-dark">$29.99</span>
+                <span class="text-[22px] text-p-gray font-normal">/year</span>
+            </div>
+
+            <!-- CTAs -->
+            <div class="flex items-center justify-center gap-4 mb-6">
+                <button class="bg-p-blue text-white text-[15px] font-medium px-8 py-3 rounded-full">Buy Now</button>
+                <button
+                    class="border border-gray-300 text-p-dark text-[15px] font-medium px-6 py-3 rounded-full flex items-center gap-2">
+                    <svg width="13" height="16" viewBox="0 0 13 16" fill="none">
+                        <path
+                            d="M10.76 8.63C10.74 6.73 12.38 5.82 12.45 5.78C11.5 4.42 10.06 4.23 9.56 4.21C8.31 4.08 7.1 4.96 6.46 4.96C5.81 4.96 4.83 4.22 3.78 4.24C2.42 4.26 1.15 5.04 0.45 6.25C-1 8.73 0.06 12.37 1.47 14.37C2.17 15.35 2.99 16.44 4.07 16.4C5.12 16.36 5.51 15.73 6.77 15.73C8.02 15.73 8.39 16.4 9.48 16.38C10.6 16.36 11.31 15.39 12 14.4C12.84 13.27 13.18 12.16 13.2 12.1C13.17 12.09 10.78 11.18 10.76 8.63Z"
+                            fill="currentColor" />
+                        <path
+                            d="M8.73 2.87C9.29 2.18 9.67 1.24 9.56 0.28C8.76 0.32 7.77 0.84 7.19 1.52C6.67 2.12 6.21 3.09 6.34 4.01C7.24 4.08 8.16 3.56 8.73 2.87Z"
+                            fill="currentColor" />
+                    </svg>
+                    Try for Free
+                </button>
+            </div>
+
+            <p class="text-p-muted text-[12px] mb-1">It takes less than a minute to set up and it works on all your Mac,
+                iPhone and iPad devices.</p>
+            <p class="text-p-muted text-[12px]">Cancel anytime · <a href="#" class="underline">Privacy</a> · <a href="#"
+                    class="underline">Terms</a></p>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+    <footer class="bg-[#1c1c1e] text-white py-14">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-4 gap-10 mb-10">
+                <div>
+                    <h5 class="text-[12px] font-semibold text-white mb-4 tracking-wide">Product</h5>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-[13px] text-gray-400 hover:text-white">Pricing</a></li>
+                        <li><a href="#" class="text-[13px] text-gray-400 hover:text-white">Release Notes</a></li>
+                        <li><a href="#" class="text-[13px] text-gray-400 hover:text-white">What's New</a></li>
+                        <li><a href="#" class="text-[13px] text-gray-400 hover:text-white">Suggest a feature</a></li>
+                        <li><a href="#" class="text-[13px] text-gray-400 hover:text-white">Beta</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-[12px] font-semibold text-white mb-4 tracking-wide">Resources</h5>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-[13px] text-gray-400 hover:text-white">Help</a></li>
+                        <li><a href="#" class="text-[13px] text-gray-400 hover:text-white">Blog</a></li>
+                        <li><a href="#" class="text-[13px] text-gray-400 hover:text-white">Press Kit</a></li>
+                        <li><a href="#" class="text-[13px] text-gray-400 hover:text-white">Affiliates Program</a></li>
+                        <li><a href="#" class="text-[13px] text-gray-400 hover:text-white">Media Kit</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-[12px] font-semibold text-white mb-4 tracking-wide">More</h5>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-[13px] text-gray-400 hover:text-white">About</a></li>
+                        <li><a href="#" class="text-[13px] text-gray-400 hover:text-white">Jobs</a></li>
+                        <li><a href="#" class="text-[13px] text-gray-400 hover:text-white">Terms of Use</a></li>
+                        <li><a href="#" class="text-[13px] text-gray-400 hover:text-white">Privacy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-[12px] font-semibold text-white mb-4 tracking-wide">Follow us</h5>
+                    <div class="flex items-center gap-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-6 flex items-center justify-between">
+                <p class="text-[12px] text-gray-500">© Paste Team ApS. All rights reserved.</p>
+                <div class="flex gap-5">
+                    <a href="#" class="text-[12px] text-gray-500 hover:text-white">Privacy</a>
+                    <a href="#" class="text-[12px] text-gray-500 hover:text-white">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
