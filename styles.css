@@ -115,15 +115,9 @@
             #career-cards > div > div:nth-child(2) {
                 padding: 0 24px !important;
             }
-            #career-cards > div > div:last-child {
-                max-height: 260px !important;
-                overflow: hidden !important;
-            }
             #career-cards > div > div:last-child img {
-                margin-top: -40px !important;
+                margin-top: 0 !important;
                 width: 100% !important;
-                object-fit: cover !important;
-                object-position: top center !important;
             }
 
             /* ── Course grid: single column ── */
