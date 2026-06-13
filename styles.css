@@ -95,10 +95,17 @@
             }
             #hero-section > div:last-child {
                 margin-top: 0 !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
             }
             #hero-section > div:last-child p {
-                font-size: 14px !important;
+                font-size: 13px !important;
                 line-height: 1.65 !important;
+                letter-spacing: -0.02em !important;
+                color: #1A3A1A !important;
+            }
+            /* strikethrough span also has inline color:white — override it */
+            #hero-section > div:last-child p span {
                 color: #1A3A1A !important;
             }
             #hero-section > div:last-child button {
