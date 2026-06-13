@@ -12,7 +12,23 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-GT3E8FLM05');
+
+      // Step 1: Read utm_source from the URL
+      const utmSource = new URLSearchParams(window.location.search).get('utm_source');
+
+      // Step 2: Detect device type from browser's user agent
+      function getDeviceType() {
+        const ua = navigator.userAgent;
+        if (/tablet|ipad|playbook|silk/i.test(ua)) return 'tablet';
+        if (/mobile|android|iphone|ipod|blackberry|opera mini|iemobile/i.test(ua)) return 'mobile';
+        return 'desktop';
+      }
+
+      // Step 3: Send both as custom parameters with every page view
+      gtag('config', 'G-GT3E8FLM05', {
+        utm_source: utmSource || 'direct',   // fallback to 'direct' if no UTM in URL
+        device_type: getDeviceType()
+      });
     </script>
 
     <!-- SEO Meta Tags -->
