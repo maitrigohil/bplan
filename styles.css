@@ -83,6 +83,10 @@
                 justify-content: flex-start !important;
                 gap: 6px !important;
             }
+            /* push title group down a little from the nav */
+            #hero-section > p:first-child {
+                margin-top: 28px !important;
+            }
             /* headline "one stop" / "for" spans */
             #hero-section > p:first-child span {
                 font-size: clamp(24px, 6.4vw, 30px) !important;
@@ -97,6 +101,7 @@
             }
             #hero-section > div:last-child {
                 margin-top: auto !important;
+                margin-bottom: 28px !important;
                 padding-left: 0 !important;
                 padding-right: 0 !important;
             }
