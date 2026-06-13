@@ -115,9 +115,8 @@
             #career-cards > div > div:nth-child(2) {
                 padding: 0 24px !important;
             }
-            #career-cards > div > div:last-child img {
-                margin-top: 0 !important;
-                width: 100% !important;
+            #career-cards > div > div:last-child {
+                height: 200px !important;
             }
 
             /* ── Course grid: single column ── */
