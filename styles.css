@@ -80,18 +80,20 @@
                 min-height: 100svh !important;
                 padding-top: 80px !important;
                 padding-bottom: 28px !important;
-                justify-content: space-evenly !important;
+                justify-content: flex-start !important;
+                gap: 6px !important;
             }
             /* headline "one stop" / "for" spans */
             #hero-section > p:first-child span {
-                font-size: clamp(20px, 5.5vw, 26px) !important;
+                font-size: clamp(24px, 6.4vw, 30px) !important;
             }
             /* headline "solution" italic */
             #hero-section > p:first-child em {
-                font-size: clamp(24px, 6.5vw, 31px) !important;
+                font-size: clamp(28px, 7.5vw, 35px) !important;
             }
             #hero-section > img {
                 max-width: 68% !important;
+                margin-top: 22px !important;
             }
             #hero-section > div:last-child {
                 margin-top: 0 !important;
@@ -246,7 +248,7 @@
             /* ── Hero CFA bar ── */
             #hero-cfa-bar { max-width: calc(100vw - 48px) !important; }
             #hero-cfa-bar em {
-                font-size: clamp(26px, 7vw, 32px) !important;
+                font-size: clamp(28px, 7.8vw, 36px) !important;
                 white-space: normal !important;
             }
 
