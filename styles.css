@@ -78,8 +78,17 @@
         @media (max-width: 767px) {
             #hero-section {
                 min-height: 100svh !important;
-                padding-bottom: 0 !important;
+                padding-top: 80px !important;
+                padding-bottom: 28px !important;
                 justify-content: space-evenly !important;
+            }
+            /* headline "one stop" / "for" spans */
+            #hero-section > p:first-child span {
+                font-size: clamp(20px, 5.5vw, 26px) !important;
+            }
+            /* headline "solution" italic */
+            #hero-section > p:first-child em {
+                font-size: clamp(24px, 6.5vw, 31px) !important;
             }
             #hero-section > img {
                 max-width: 68% !important;
@@ -88,8 +97,9 @@
                 margin-top: 0 !important;
             }
             #hero-section > div:last-child p {
-                font-size: 15px !important;
+                font-size: 14px !important;
                 line-height: 1.65 !important;
+                color: #1A3A1A !important;
             }
             #hero-section > div:last-child button {
                 font-size: 15px !important;
@@ -226,10 +236,10 @@
                 text-align: center !important;
             }
 
-            /* ── Hero CFA bar — prevent text clip on narrow screens ── */
+            /* ── Hero CFA bar ── */
             #hero-cfa-bar { max-width: calc(100vw - 48px) !important; }
             #hero-cfa-bar em {
-                font-size: clamp(16px, 4.5vw, 23px) !important;
+                font-size: clamp(26px, 7vw, 32px) !important;
                 white-space: normal !important;
             }
 
