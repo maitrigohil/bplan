@@ -115,8 +115,15 @@
             #career-cards > div > div:nth-child(2) {
                 padding: 0 24px !important;
             }
+            #career-cards > div > div:last-child {
+                max-height: 260px !important;
+                overflow: hidden !important;
+            }
             #career-cards > div > div:last-child img {
-                margin-top: -80px !important;
+                margin-top: -40px !important;
+                width: 100% !important;
+                object-fit: cover !important;
+                object-position: top center !important;
             }
 
             /* ── Course grid: single column ── */
@@ -232,9 +239,6 @@
                 font-size: clamp(16px, 4.5vw, 23px) !important;
                 white-space: normal !important;
             }
-
-            /* ── Notes image — reduce overlap on narrow cards ── */
-            #career-cards > div > div:last-child img { margin-top: -40px !important; }
 
             /* ── Community buttons (fix: was wrong selector + wrong element type) ── */
             #community-section > div > div:nth-child(2) {
