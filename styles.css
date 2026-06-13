@@ -225,6 +225,61 @@
                 gap: 8px !important;
                 text-align: center !important;
             }
+
+            /* ── Hero CFA bar — prevent text clip on narrow screens ── */
+            #hero-cfa-bar { max-width: calc(100vw - 48px) !important; }
+            #hero-cfa-bar em {
+                font-size: clamp(16px, 4.5vw, 23px) !important;
+                white-space: normal !important;
+            }
+
+            /* ── Notes image — reduce overlap on narrow cards ── */
+            #career-cards > div > div:last-child img { margin-top: -40px !important; }
+
+            /* ── Community buttons (fix: was wrong selector + wrong element type) ── */
+            #community-section > div > div:nth-child(2) {
+                gap: 8px !important;
+                padding: 0 16px !important;
+                margin-bottom: 24px !important;
+            }
+            #community-section > div > div:nth-child(2) a {
+                font-size: 10px !important;
+                padding: 6px 10px !important;
+                gap: 4px !important;
+            }
+            #community-section > div > div:nth-child(2) a svg {
+                width: 10px !important;
+                height: 10px !important;
+                flex-shrink: 0;
+            }
+
+            /* ── Pricing tabs — single row, equal width, no wrap ── */
+            #cfa-pricing .inline-flex {
+                flex-wrap: nowrap !important;
+                gap: 3px !important;
+                width: 100% !important;
+            }
+            #cfa-pricing .cfa-tab {
+                flex: 1 !important;
+                text-align: center !important;
+                font-size: 10px !important;
+                padding: 6px 8px !important;
+                white-space: nowrap !important;
+            }
+
+            /* ── Footer text centering ── */
+            footer .grid.grid-cols-3 > div { align-items: center !important; }
+            footer .grid.grid-cols-3 > div > div {
+                text-align: center !important;
+                width: 100% !important;
+            }
+            footer .grid.grid-cols-3 h5 { text-align: center !important; }
+            footer .grid.grid-cols-3 a { text-align: center !important; }
+
+            /* ── herobase perf — strip image from non-hero bg layers on mobile ── */
+            #cfa-pricing > div:first-child,
+            #community-section > div:first-child { background-image: none !important; }
+            footer { background-image: none !important; background-color: #ddeae2 !important; }
         }
 
         #main-nav {
