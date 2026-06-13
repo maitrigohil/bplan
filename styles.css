@@ -93,10 +93,10 @@
             }
             #hero-section > img {
                 max-width: 68% !important;
-                margin-top: 22px !important;
+                margin-top: auto !important;
             }
             #hero-section > div:last-child {
-                margin-top: 0 !important;
+                margin-top: auto !important;
                 padding-left: 0 !important;
                 padding-right: 0 !important;
             }
@@ -246,7 +246,10 @@
             }
 
             /* ── Hero CFA bar ── */
-            #hero-cfa-bar { max-width: calc(100vw - 48px) !important; }
+            #hero-cfa-bar {
+                max-width: calc(100vw - 32px) !important;
+                text-align: center !important;
+            }
             #hero-cfa-bar em {
                 font-size: clamp(28px, 7.8vw, 36px) !important;
                 white-space: normal !important;
