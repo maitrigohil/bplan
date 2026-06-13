@@ -602,3 +602,37 @@
             #counsel-card { border-radius: 28px; }
             #counsel-left { padding: 44px 28px 28px; }
         }
+
+        /* ── Large screens (15–16" laptops, ~1400px+) ── */
+        @media (min-width: 1400px) {
+            #hero-section {
+                padding-top: 110px !important;
+                padding-bottom: 60px !important;
+                min-height: 95vh !important;
+                justify-content: center !important;
+            }
+            /* "one stop" and "for" spans */
+            #hero-section > p:first-child span {
+                font-size: clamp(56px, 4vw, 72px) !important;
+            }
+            /* "solution" italic */
+            #hero-section > p:first-child em {
+                font-size: clamp(67px, 4.8vw, 86px) !important;
+            }
+            /* "Chartered Financial Analyst" bar */
+            #hero-cfa-bar em {
+                font-size: clamp(72px, 5.2vw, 92px) !important;
+            }
+            .hero-folder {
+                width: 380px !important;
+                max-width: 38% !important;
+            }
+            /* subtitle block */
+            #hero-section > div:last-child {
+                max-width: 680px !important;
+                margin-top: 12px !important;
+            }
+            #hero-section > div:last-child p {
+                font-size: clamp(18px, 1.4vw, 24px) !important;
+            }
+        }
