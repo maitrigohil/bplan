@@ -85,7 +85,7 @@
             }
             /* push title group down a little from the nav */
             #hero-section > p:first-child {
-                margin-top: 28px !important;
+                margin-top: 40px !important;
             }
             /* headline "one stop" / "for" spans */
             #hero-section > p:first-child span {
